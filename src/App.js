@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import "@aws-amplify/ui-react/styles.css";
-import { API } from "aws-amplify";
+import { API, Storage } from "aws-amplify";
 import {
   Button,
   Flex,
   Heading,
+  Image,
   Text,
   TextField,
   View,
@@ -17,17 +18,6 @@ import {
   deleteNote as deleteNoteMutation,
 } from "./graphql/mutations";
 
-import { API, Storage } from 'aws-amplify';
-import {
-  Button,
-  Flex,
-  Heading,
-  Image,
-  Text,
-  TextField,
-  View,
-  withAuthenticator,
-} from '@aws-amplify/ui-react';
 
 
 const App = ({ signOut }) => {
@@ -72,7 +62,7 @@ const App = ({ signOut }) => {
     event.target.reset();
   }
 
-  async function deleteNote({ id }) {
+  async function deleteNote({ id, name }) {
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
     await Storage.remove(name);
