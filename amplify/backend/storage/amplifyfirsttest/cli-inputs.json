@@ -1,0 +1,14 @@
+{
+  "resourceName": "amplifyfirsttest",
+  "policyUUID": "ea054902",
+  "bucketName": "rizamplifyfirsttest",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
